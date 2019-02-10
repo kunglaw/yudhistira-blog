@@ -1,0 +1,55 @@
+
+.container {
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.clearfix {
+    clear: both;
+}
+
+footer {
+    background-color: #373e46;
+    color:white;
+}
+
+footer h2 {
+    margin-bottom:20px;
+    color:white;
+}
+
+footer .footer-left {
+    float: left;
+    margin-left:0;
+}
+
+footer .footer-left .sitemap {
+
+}
+
+footer .footer-left .sitemap ul {
+   
+    list-style-type: none;
+    text-align: left;
+}
+
+footer .footer-left .sitemap ul li {
+    text-decoration: none;
+  
+}
+
+footer .footer-right {
+    
+    float: right;
+}
+
+footer .copyright {
+    padding:0;
+    height:50px;
+}
+
+footer .copyright p {
+    height:50px; 
+    line-height: 50px;
+    margin-bottom: -25px;
+}
