@@ -7,6 +7,17 @@ import "./ContactForm.css"
 
 class ContactForm extends Component {
 
+    constructor(props) {
+        super(props)
+        
+        this.state = {
+            name:"",
+            email:"",
+            subject:"",
+            description:""
+        }
+    }
+
     handleChangeName(event) {
         this.setState({
             name:event.target.value
@@ -38,21 +49,25 @@ class ContactForm extends Component {
                 <Devider></Devider>
                 <form method="post">
                     <TextField fullWidth variant="filled" label="Name" 
-                    name="Name" onChange={() => this.handleChangeName() }
+                    value={ this.state.name }
+                    name="Name" onChange={(event) => this.handleChangeName(event) }
                     className="textfieldUI"></TextField>
 
                     <TextField fullWidth variant="filled" label="Email" 
                     type="email" className="textfieldUI" 
-                    name="email" onChange={() => this.handleChangeEmail() }></TextField>
+                    value={ this.state.email }
+                    name="email" onChange={(event) => this.handleChangeEmail(event) }></TextField>
 
                     <TextField fullWidth variant="filled" label="Subject" 
                     type="text" className="textfieldUI"
-                     onChange={() => this.handleChangeSubject()}
+                    value={ this.state.subject }
+                     onChange={(event) => this.handleChangeSubject(event)}
                     name="subject"></TextField>
 
-                    <TextField fullWidth variant="filled" label="Description" 
+                    <TextField fullWidth variant="filled" label="Description"
+                    value={ this.state.description }
                     type="text" className="textfieldUI"
-                     onChange={() => this.handleChangeDescription()}
+                     onChange={(event) => this.handleChangeDescription(event)}
                     name="description" multiline rows="4" ></TextField>
 
                     <Button variant="contained" color="primary" type="submit"> Submit </Button>

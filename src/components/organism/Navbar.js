@@ -20,7 +20,7 @@ export default class Navbar extends Component {
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link to="/posts">
+                            <Link to="/post">
                                <Button style={{color:"white"}}> Posts </Button>
                             </Link>
                         </Grid>
