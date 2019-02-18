@@ -7,8 +7,43 @@ import Grid from "@material-ui/core/Grid"
 // import Box from "@material-ui/core/Box" // gak ngadong 
 import List from "./../components/organism/List"
 
+import { connect } from "react-redux"
+import { fetchPost } from "./../common/actions/posts"
+import helpers  from "./../helpers/helpers"
+
 class Post extends Component {
+
+    componentWillMount() {
+        this.props.fetchPost() // fetch posts pak 
+        console.log( " componentWillMount ==> ",this.props)
+       // console.log( " shit ===> ",this.props.posts )
+    }
+
+    componentDidMount() {
+        // console.log( " componentDidMount ===> " )
+        this.props.fetchPost() // fetch posts pak 
+        console.log( " componentDidMount ==> ",this.props.posts)
+    }
+
+    // render() {
+    //     console.log( "render ==> ",this.props.posts)
+    //     const { posts } = this.props
+    //     console.log( "render lagi ==> ",Array.isArray( posts.posts ))
+
+    //     return (
+    //         <div>
+    //             {
+                   
+    //             }
+    //         </div>
+    //     )
+    // }
+
+    
     render() {
+
+        const { posts } = this.props
+        const { wordLimiter } = helpers
 
         // data asal
         const dataList = [
@@ -30,41 +65,30 @@ class Post extends Component {
             }
         })
 
+        //console.log( " render ===> ",this.props.posts )
+
+        const postList = posts.posts.map((item) => {
+            return (
+                <Grid key={item.id} item xs={12} sm={4} >
+                    <Card
+                        cardHeader={true}
+                        title={ item.title }
+                    >
+                        <p> { wordLimiter( item.description , 20)} </p>
+                    </Card>
+                </Grid>
+            )
+        })
+
         return (
             <Section>
-              
+                
                 <Text variant="h5" style={{ margin:"10px 0"}} > Posts Page </Text>
 
                 <Grid container spacing={16}>
                     <Grid item sm={10} xs={12}> 
                         <Grid container spacing={ 8 }>
-                            <Grid item xs={12} sm={4} >
-                                <Card
-                                    cardHeader={true}
-                                    title="test title"
-                                    subheader="creator and date"
-                                >
-                                    <p> Lorem ipsum sit dolor amet </p>
-                                </Card>
-                            </Grid>
-                            <Grid item xs={12} sm={4} >
-                                <Card
-                                    cardHeader={true}
-                                    title="test title"
-                                    subheader="creator and date"
-                                >
-                                    <p> Lorem ipsum sit dolor amet </p>
-                                </Card>
-                            </Grid>
-                            <Grid item xs={12} sm={4} >
-                                <Card
-                                    cardHeader={true}
-                                    title="test title"
-                                    subheader="creator and date"
-                                >
-                                    <p> Lorem ipsum sit dolor amet </p>
-                                </Card>
-                            </Grid>
+                           { postList }
                         </Grid>
                     </Grid>
                     <Grid item sm={2} xs={12}>
@@ -73,12 +97,22 @@ class Post extends Component {
                     </Grid>
                 </Grid>
                
-                
-               
-               
+             
             </Section>
         );
+    } 
+
+   
+}
+
+const mapStateToProps = (state) => {
+    return {
+        posts:state.posts,
     }
 }
 
-export default Post;
+const mapDispatchToProps = {
+    fetchPost
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )(Post);
