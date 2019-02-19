@@ -4,6 +4,9 @@ export default {
         //console.log("strArr ==> ",str)
         var strSlice = strArr.slice(0,limit+1)
         var result = strSlice.join(" ")
-        return result
+        return result+" ..."
+    } , 
+    dateTime: function(date) {
+        return date
     }
 }
