@@ -17,79 +17,84 @@ class Post extends Component {
     componentWillMount() {
        
        // console.log( " shit ===> ",this.props.posts )
+         // console.log( " componentDidMount ===> " )
+         this.props.fetchPost() // fetch posts pak 
+         this.props.fetchCategory()
     }
 
     componentDidMount() {
         // console.log( " componentDidMount ===> " )
         this.props.fetchPost() // fetch posts pak 
         this.props.fetchCategory()
-        console.log( " componentDidMount ==> ",this.props.posts)
+        
     }
 
-    render() {
-       
-        const { categories, posts } = this.props
-        console.log(" render ===> ", posts, categories)
-
-        return (
-            <div>
-                {
-                   
-                }
-            </div>
-        )
-    }
-
-    
     // render() {
-
-    //     const { posts , categories } = this.props
-    //     const { wordLimiter } = helpers
-
        
-    //     // readable data for ListItem
-    //     const itemList = categories.map((item) => {
-    //         return {
-    //             title:item.category
-    //         }
-    //     })
-
-    //     //console.log( " render ===> ",this.props.posts )
-
-    //     const postList = posts.posts.map((item) => {
-    //         return (
-    //             <Grid key={item.id} item xs={12} sm={4} >
-    //                 <Card
-    //                     cardHeader={true}
-    //                     title={ item.title }
-    //                 >
-    //                     <p> { wordLimiter( item.description , 20)} </p>
-    //                 </Card>
-    //             </Grid>
-    //         )
-    //     })
+    //     const { categories, posts } = this.props
+    //     console.log(" render ===> ", posts, categories)
 
     //     return (
-    //         <Section>
-                
-    //             <Text variant="h5" style={{ margin:"10px 0"}} > Posts Page </Text>
+    //         <div>
+    //             {
+                   
+    //             }
+    //         </div>
+    //     )
+    // }
 
-    //             <Grid container spacing={16}>
-    //                 <Grid item sm={10} xs={12}> 
-    //                     <Grid container spacing={ 8 }>
-    //                        { postList }
-    //                     </Grid>
-    //                 </Grid>
-    //                 <Grid item sm={2} xs={12}>
-    //                     <List component="nav" dataList={ itemList } subheader="Categories">
-    //                     </List>
-    //                 </Grid>
-    //             </Grid>
+    
+    render() {
+
+        const { posts , categories } = this.props
+        const { wordLimiter } = helpers
+
+       
+        // readable data for ListItem
+        const itemList = categories.categories.map((item) => {
+            return {
+                title:item.category
+            }
+        })
+
+        //console.log( " render ===> ",this.props.posts )
+
+        const postList = posts.posts.map((item) => {
+            return (
+                <Grid key={item.id} item xs={12} sm={4} >
+                    <Card
+                        cardHeader={true}
+                        title={ item.title }
+                    >
+                        <p> { wordLimiter( item.description , 20)} </p>
+                    </Card>
+                </Grid>
+            )
+        })
+
+        console.log(" what ? ===> ",categories.categories)
+
+        return (
+            <Section>
+                
+                <Text variant="h5" style={{ margin:"10px 0"}} > Posts Page </Text>
+
+                <Grid container spacing={16}>
+                    <Grid item sm={10} xs={12}> 
+                        <Grid container spacing={ 8 }>
+                           { postList }
+                        </Grid>
+                    </Grid>
+                    <Grid item sm={2} xs={12}>
+                        <List component="nav" dataList={ itemList } subheader="Categories">
+                        </List>
+                    </Grid>
+                </Grid>
                
              
-    //         </Section>
-    //     );
-    // } 
+            </Section>
+        );
+    } 
 
    
 }

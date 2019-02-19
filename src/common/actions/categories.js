@@ -24,7 +24,7 @@ export const fetchCategory = (categories = []) => {
                 }
             })
 
-            console.log("action Category ==> ",categories)
+            //console.log("action Category ==> ",categories)
 
             dispatch(updateCategory(categories))
     

@@ -5,6 +5,7 @@ const INITIAL_STATE = {
 export default function(state = INITIAL_STATE, action) {
     switch(action.type) {
         case "UPDATE_CATEGORY" :
+            console.log(" this worked right ?")
             return {
                 ...state,
                 categories:action.payload.categories
