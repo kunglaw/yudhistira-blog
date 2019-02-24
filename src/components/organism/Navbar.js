@@ -16,7 +16,7 @@ export default class Navbar extends Component {
                    <Grid container>
                         <Grid item xs={2} sm={2}>
                             <Link component={ LinkUi } to="/">
-                                <Text textColor="white" variant="h5" color="inherit"> Yudhistira Blog </Text>
+                                <Text style={{ textDecoration:"none" }} variant="h5" color="inherit"> Yudhistira Blog </Text>
                             </Link>
                         </Grid>
                         <Grid item>

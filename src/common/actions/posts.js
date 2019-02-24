@@ -32,3 +32,19 @@ export const fetchPost = (posts = []) => {
         })
     }
 }
+
+export const createPost = (input) => {
+    return (dispatch) => {
+    axios.post({
+            url:"https://api.backendless.com/11BFB750-A260-981E-FF14-A1EEBD735000/4B647189-4634-88F4-FF7A-45BE60E6B000/data/Posts",
+            data:input
+        })
+        .then(res => {
+
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+}
+

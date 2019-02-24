@@ -10,7 +10,7 @@ class Footer extends Component {
         return (
             
             <footer>
-                <Section class="container">
+                <Section className="container">
                     <Grid direction="row" spacing={32} container>
                         <Grid className="footer-left" item xs={12} sm={6} justify="flex-start">
                            

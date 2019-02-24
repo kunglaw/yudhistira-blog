@@ -7,8 +7,8 @@ class List extends Component {
     render() {
         const props = this.props;
         const dataList = props.dataList.length > 0 ? props.dataList.map((item) => {
-            return <ListItem button> { item.title }</ListItem>
-        }) : <ListItem> No Data </ListItem>
+            return <ListItem button key={ item.id }> { item.title }</ListItem>
+        }) : <ListItem key={0} > No Data </ListItem>
         const subHeader = props.subheader ? <ListSubheader component="div">{ props.subheader }</ListSubheader> : ""
 
         return (

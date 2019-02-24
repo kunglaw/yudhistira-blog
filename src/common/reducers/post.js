@@ -1,23 +1,22 @@
 const INITIAL_STATE = {
-    categories:[]
+    post:{ },
 }
 
 export default function(state = INITIAL_STATE, action) {
     switch(action.type) {
-        case "UPDATE_CATEGORY" :
-          
+        case "UPDATE_POST_DETAIL" :
             return {
                 ...state,
-                categories:action.payload.categories
+                post:action.payload.post,
+                // post:{}
             }
-
-        case "GET_CATEGORY" :
+        case "GET_POST_DETAIL" :
             return {
                 ...state,
-                categories:action.payload.categories
+                post:action.payload.post,
+                // posts:[]
             }
-        
         default:
-            return state    
+            return state
     }
 }

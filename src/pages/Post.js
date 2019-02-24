@@ -6,6 +6,7 @@ import Card from "./../components/organism/Card"
 import Grid from "@material-ui/core/Grid"
 // import Box from "@material-ui/core/Box" // gak ngadong 
 import List from "./../components/organism/List"
+import { Link } from "react-router-dom"
 
 import { connect } from "react-redux"
 import { fetchPost } from "./../common/actions/posts" // action yang diambil 
@@ -18,8 +19,8 @@ class Post extends Component {
        
        // console.log( " shit ===> ",this.props.posts )
          // console.log( " componentDidMount ===> " )
-         this.props.fetchPost() // fetch posts pak 
-         this.props.fetchCategory()
+         //this.props.fetchPost() // fetch posts pak 
+         //this.props.fetchCategory()
     }
 
     componentDidMount() {
@@ -49,6 +50,8 @@ class Post extends Component {
         const { posts , categories } = this.props
         const { wordLimiter } = helpers
 
+        console.log(this.props)
+
        
         // readable data for ListItem
         const itemList = categories.categories.map((item) => {
@@ -64,15 +67,16 @@ class Post extends Component {
                 <Grid key={item.id} item xs={12} sm={4} >
                     <Card
                         cardHeader={true}
-                        title={ item.title }
+                        avatar={"E"}
+                        cardMedia={"https://via.placeholder.com/200x150"}
+                        imageTitle="placeholder"
+                        title={ <Link to={"/post/detail/"+ item.id }>{item.title}</Link> }
                     >
                         <p> { wordLimiter( item.description , 20)} </p>
                     </Card>
                 </Grid>
             )
         })
-
-        console.log(" what ? ===> ",categories.categories)
 
         return (
             <Section>
@@ -107,9 +111,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = {
-    fetchCategory ,
-    fetchPost,
-}
+const mapDispatchToProps = (dispatch) => ({
+    fetchCategory: () => dispatch(fetchCategory()),
+    fetchPost: () => dispatch(fetchPost())
+})
 
 export default connect( mapStateToProps, mapDispatchToProps )(Post);

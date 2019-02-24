@@ -15,20 +15,24 @@ export default class Card extends Component {
         const props = this.props
 
         const cardHeader = props.title ? 
-            <CardHeader avatar={
-                <Avatar aria-label="Recipe"> E </Avatar>
+            <CardHeader
+             style={{height:"-10px"}}
+             avatar={
+                props.avatar ? <Avatar aria-label="Recipe"> E </Avatar> : ""
             }
             action={
                 <IconButton>
                 
                 </IconButton>
             }
-            title={ props.title }
+            title={ <h4>{props.title}</h4> }
             subheader={ props.subheader }
             ></CardHeader> 
         : ""
+
         const cardMedia = props.cardMedia ? 
             <CardMedia 
+                style={{ height:"140px"}}
                 image={ props.cardMedia }
                 title={ props.imageTitle }
             ></CardMedia> : ""
