@@ -56,7 +56,8 @@ class Post extends Component {
         // readable data for ListItem
         const itemList = categories.categories.map((item) => {
             return {
-                title:item.category
+                title:item.category,
+                href:"/post/?postId="+item.objectId
             }
         })
 

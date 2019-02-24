@@ -3,6 +3,8 @@ import Section from "./../components/organism/Section"
 import Grid from "@material-ui/core/Grid"
 import List from "./../components/organism/List"
 import Text from "./../components/atoms/Text"
+import CommentSubmit from "./../components/organism/CommentSubmit"
+import CommentList from "./../components/organism/CommentList"
 
 import { connect } from "react-redux"
 import { fetchCategory } from "./../common/actions/categories"
@@ -28,7 +30,8 @@ class PostDetail extends Component {
         // readable data for ListItem
         const itemList = categories.categories.map((item) => {
             return {
-                title:item.category
+                title:item.category,
+                href:"/post/?postId="+item.objectId
             }
         })
 
@@ -39,6 +42,8 @@ class PostDetail extends Component {
                    <Card cardHeader={true} title={ postD.title }>
                         { postD.description }
                    </Card>
+                   <CommentSubmit postId={ postD.objectId } />
+                   <CommentList postId={ postD.objectId } />
                 </Grid>
                 <Grid item sm={2} xs={12}>
                         <List component="nav" dataList={ itemList } subheader="Categories">

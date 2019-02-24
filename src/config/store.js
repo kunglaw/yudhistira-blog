@@ -3,6 +3,7 @@ import app from "./../common/reducers/app";
 import posts from "./../common/reducers/posts"
 import post from "./../common/reducers/post"
 import categories from "./../common/reducers/categories"
+import comments from "./../common/reducers/comments"
 import helpers from "./../helpers/helpers"
 import thunk from "redux-thunk"
 
@@ -11,6 +12,7 @@ const reducers = combineReducers({
     posts,
     post,
     categories,
+    comments,
     helpers
 })
 
