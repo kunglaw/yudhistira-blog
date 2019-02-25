@@ -1,7 +1,6 @@
 import React,{ Component } from "react" 
 
-import Card from "./Card"
-import Text from "../atoms/Text"
+
 import List from "./List"
 import { connect } from "react-redux"
 import { fetchComments } from "../../common/actions/comments"

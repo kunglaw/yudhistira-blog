@@ -2,7 +2,7 @@ import React,{ Component } from "react"
 import Section from "./../components/organism/Section"
 import Grid from "@material-ui/core/Grid"
 import List from "./../components/organism/List"
-import Text from "./../components/atoms/Text"
+// import Text from "./../components/atoms/Text"
 import CommentSubmit from "./../components/organism/CommentSubmit"
 import CommentList from "./../components/organism/CommentList"
 
